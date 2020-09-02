@@ -3,7 +3,7 @@ const appName = "DomScrap";
 const wordsKey = "videos youtube abidjan cote d'ivoire"
 
 const appUrlDev = "http://192.168.1.106:5000"
-const appUrlProd = "https://domscrapper.herokuapp.com/"
+const appUrlProd = "https://domscrapper.herokuapp.com"
 
 const instagram = {
     intitule: "Instagram",
