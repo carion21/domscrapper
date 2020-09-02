@@ -56,7 +56,7 @@ class Constante {
     }
 
     static appUrl() {
-        let url = appUrlProd
+        let url = appUrlDev
         return url
     }
 

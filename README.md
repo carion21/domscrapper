@@ -27,3 +27,10 @@ Pour le tester il suffit de ce rendre sur l'un de ces deux liens :
     __ https://domscrapper.herokuapp.com/
 
 et de d'inserer un mot ou un groupe de mots et d'effectuer ses recherches
+
+Examples: Taper le mot Inondations
+
+<img src="./public/images/Capture d’écran de 2020-09-02 04-13-17.png">
+<img src="./public/images/Capture d’écran de 2020-09-02 04-13-11.png">
+<img src="./public/images/Capture d’écran de 2020-09-02 04-13-37.png">
+<img src="./public/images/Capture d’écran de 2020-09-02 04-14-22.png">
