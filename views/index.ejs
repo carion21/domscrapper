@@ -1,11 +1,100 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> </title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <div style="height: 50px;"></div>
+        <div class="row">
+            <div id="home" class="col s12 m8 offset-m2">
+                <div class="card center">
+                    <div class="card-content">
+                        <h4>
+                            <b>
+                                DomScrapper
+                            </b>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form method="POST" action="/">
+
+            <div class="row">
+                <div class="col s12 m10 offset-m1">
+                    <div class="card horizontal">
+
+
+
+                        <div class="card-stacked">
+                            <div class="card-content">
+
+                                <div class="row">
+                                    <div class="col m10 offset-m1">
+                                        <div class="card">
+                                            <div class="card-content">
+                                                <div class="row">
+                                                    <div class="input-field col s12 m12">
+                                                        <i class="material-icons prefix">search</i>
+                                                        <input name="recherche" id="icon_prefix" type="text"
+                                                            class="validate" required>
+                                                        <label for="icon_prefix">Recherche</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col m8 offset-m4 ">
+                                        <button type="submit" class="btn btn-large">
+                                            Rechercher
+                                        </button>
+
+                                        <button type="reset" class="btn btn-large red">
+                                            EFFACER
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-action center">
+                                <% if(locals.erreur) { %>
+                                <p style="font-size: 20px;" class="red-text">
+                                    <%= locals.erreur %>
+                                </p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $('#home').click(function () {
+
+            location.reload();
+
+        });
+    </script>
+</body>
+
 </html>

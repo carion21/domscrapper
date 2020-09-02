@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> </title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <div style="height: 10px;"></div>
+        
+
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                <div class="card center">
+                    <div class="card-content">
+                        <a href="/" class="btn">
+                            Retour
+                        </a>
+                        <br>
+                        <p>
+                            Au total <%= nombreElement %> resultat(s)
+                        </p>
+                        <h5>
+                            Liste des résultats pour la recherche :
+                            <br>
+                            <br>
+                            <span style="font-style: italic;">
+                                <b>
+                                    <%= locals.recherche %>
+                                </b>
+                            </span>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Affichage liste variante -->
+        <div class="row">
+            <div class="col s12 m8 offset-m2">
+                <div class="card" style="height: 150px;">
+                    <div class="card-content">
+                        <ul class="tabs">
+                            <li class="tab col s4">
+                                <a class="active" href="#videos">
+                                    <i class="material-icons prefix">movie</i>
+                                    Vidéos
+                                </a>
+                            </li>
+                            <li class="tab col s4">
+
+                                <a class="active" href="#images">
+                                    <i class="material-icons prefix">photo</i>
+                                    Images
+                                </a>
+                            </li>
+                            <li class="tab col s4">
+                                <a class="active" href="#actualites">
+                                    <i class="material-icons prefix">article</i>
+                                    Actualités
+                                </a>
+                            </li>
+                        </ul>
+                        <div id="videos" class="col s12 md-4 offset-m4">
+                            <br>
+                            <a href="<%= lv_videos %>" class="btn" target="_blank">
+                                Voir Plus
+                            </a>
+                        </div>
+                        <div id="images" class="col s12 md-4 offset-m4">
+                            <br>
+                            <a href="<%= lv_images %>" class="btn" target="_blank">
+                                Voir Plus
+                            </a>
+                        </div>
+                        <div id="actualites" class="col s12 md-4 offset-m4">
+                            <br>
+                            <a href="<%= lv_actualites %>" class="btn" target="_blank">
+                                Voir Plus
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultats">
+            <% for(resultat of resultats) { %>
+
+            <div class="row">
+                <div class="col s12 m12">
+                    <div class="card " style="overflow: auto;">
+                        <div class="card-content">
+
+                            <div class="row">
+
+                                <!-- Affichage de l'image ou de la vidéo ici-->
+                                <div class="col m4">
+                                    <div class="card" style="display: none;">
+                                        <div class="card-image waves-effect waves-block waves-light">
+                                            <img class="activator" src="<%= resultat.image %>"
+                                                style=" width: 100%; height: 300px;">
+                                        </div>
+                                        <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-4">
+                                                Titre
+                                                <i class="material-icons right">close</i>
+                                            </span>
+                                            <p>
+                                                <%= resultat.titre %>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card" style="display:  ;">
+                                        <div class="card-image waves-effect waves-block waves-light">
+                                            <iframe allowfullscreen="" style="width: 100%; height: 300px;"
+                                                src="<%= resultat.lien %>">
+                                            </iframe>
+                                        </div>
+                                        <div class="card-reveal">
+                                            <span class="card-title grey-text text-darken-4">
+                                                Titre
+                                                <i class="material-icons right">close</i>
+                                            </span>
+                                            <p>
+                                                <%= resultat.titre %>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Affichage du titre et de la date ici-->
+                                <div class="col s12 m8">
+
+                                    <!-- Affichage du titre ici-->
+                                    <div class="row">
+                                        <div class="card">
+                                            <div class="card-content">
+                                                <h5> <b>Titre : </b>
+                                                    <%= resultat.titre %>
+                                                </h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Affichage de la  et du lien vers la vidéo ici-->
+                                    <div class="row">
+                                        <div class="col s12 m4 ">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <p style="font-size: 16px;">
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                            Date :
+                                                        </span>
+                                                        <%= resultat.datev %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <a href="<%= resultat.lien %> " class="btn btn-large" target="_blank">
+                                                Consulter la vidéo ici
+                                            </a>
+                                        </div>
+
+                                        <div class="col s12 m6 offset-m1">
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <p style="font-size: 16px;">
+                                                        <span style="font-size: 20px; font-weight: bold;">
+                                                            Source :
+                                                        </span>
+                                                        <%= resultat.source.intitule %>
+                                                    </p>
+                                                    <hr>
+                                                    <br>
+                                                    <a href="<%= resultat.source.lien %> " class="btn " target="_blank">
+                                                        Consulter la source ici
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <hr>
+
+                            <div>
+                                <p class="right" style="font-size: 18px;">
+                                    <span>
+                                        <b><i>
+                                                (<%= resultat.index+1 %> )
+                                            </i></b>
+                                    </span>
+                                    By DomScrapper :) of Carion
+                                </p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+        </div>
+
+
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.tabs').tabs();
+        });
+    </script>
+</body>
+
+</html>
